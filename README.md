@@ -189,8 +189,9 @@ Can you suggest another way to perform transfer learning on these models that mi
 - Can you suggest another way to perform transfer learning on these models that might be more effective than the current implementation?
 	- Progressive unfreezing to progressively retrain layers
 - What would you do differently? 
-	- Modify first convolution layer of Resnet since Resnet was used on ImageNet which has images that are 224x224, but STL-10 images are 96x96. Hence, drop the `transforms.Resize((224, 224))`. 
-	  ```Python
+	- Modify first convolution layer of Resnet since Resnet was used on ImageNet which has images that are 224x224, but STL-10 images are 96x96. Hence, drop the `transforms.Resize((224, 224))`.
+ 
+ ```Python
 model = resnet50(num_classes=10)
 
 # edit first conv layer to work better with 96x96 images
